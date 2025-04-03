@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padhangmbulan | Forum Maiyah Cak Nun</title>
+    <style>
+        /* Warna-warna khas Maiyah */
+        :root {
+            --main-color: #3c5f56;
+            --accent-color: #b88746;
+            --dark-color: #2b3a38;
+            --light-color: #f5f1e9;
+            --cream-color: #e8dcc2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--main-color);
+            padding: 1rem 0;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--main-color);
+            border: 3px solid var(--accent-color);
+        }
+        
+        .site-title {
+            color: var(--light-color);
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .site-subtitle {
+            color: var(--cream-color);
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        nav {
+            background-color: var(--dark-color);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/api/placeholder/1200/400") center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--light-color);
+            padding: 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #a07637;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--main-color);
+            color: var(--light-color);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 2rem;
+        }
+        
+        .feature h3 {
+            color: var(--main-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Quotes Section */
+        .quotes {
+            background-color: var(--cream-color);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .quotes h2 {
+            color: var(--main-color);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .quote {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-style: italic;
+        }
+        
+        .quote p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .quote cite {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        
+        /* Calendar Section */
+        .calendar {
+            padding: 3rem 0;
+        }
+        
+        .calendar h2 {
+            text-align: center;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .events {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .event {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .event-date {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event h3 {
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">PM</div>
+            </div>
+            <h1 class="site-title">Padhangmbulan</h1>
+            <p class="site-subtitle">Forum Maiyah Emha Ainun Nadjib</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#jadwal">Jadwal</a></li>
+            <li><a href="#artikel">Artikel</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <h2>"Ilmu Tanpa Hati, Bagaikan Pelita di Tangan Pencuri"</h2>
+        <p>Maiyah adalah pertemuan untuk bersama-sama berproses dalam menggali kedalaman makna hidup. Bukan semata kajian, tetapi juga kebersamaan dalam menelusuri jejak-jejak Ilahi.</p>
+        <a href="#jadwal" class="btn">Jadwal Terdekat</a>
+    </section>
+    
+    <main class="container">
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">📖</div>
+                <h3>Kajian Maiyah</h3>
+                <p>Forum diskusi dan kajian bersama Cak Nun yang membahas berbagai tema kehidupan, spiritualitas, sosial budaya, hingga politik dengan pendekatan yang mendalam namun tetap akrab.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎵</div>
+                <h3>Musik Kiai Kanjeng</h3>
+                <p>Perpaduan musik tradisional dan modern yang membawakan lagu-lagu spiritual, puisi musikal, dan eksperimen bunyi yang menyejukkan hati dan pikiran.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤝</div>
+                <h3>Komunitas Maiyah</h3>
+                <p>Ruang persaudaraan dan persahabatan lintas identitas yang dilandasi sikap saling menghormati, rendah hati, dan semangat kebersamaan dalam keberagaman.</p>
+            </div>
+        </section>
+    </main>
+    
+    <section class="quotes">
+        <div class="container">
+            <h2>Kata-kata Cak Nun</h2>
+            <div class="quote">
+                <p>"Orang yang tahu ilmu, itu bijaksana. Tapi orang yang tahu batas ilmunya, itu lebih bijaksana."</p>
+                <cite>- Emha Ainun Nadjib</cite>
+            </div>
+            <div class="quote">
+                <p>"Dalam bermaiyah, kita tidak sedang membentuk kotak baru, melainkan membubarkan semua kotak. Kita tidak menciptakan identitas baru, melainkan merayakan keberagaman identitas."</p>
+                <cite>- Emha Ainun Nadjib</cite>
+            </div>
+        </div>
+    </section>
+    
+    <section class="calendar container">
+        <h2>Jadwal Sinau Bareng</h2>
+        <div class="events">
+            <div class="event">
+                <div class="event-date">17 April 2025</div>
+                <h3>Padhangmbulan Jombang</h3>
+                <p>Pondok Pesantren Tebuireng, Jombang</p>
+                <p>Tema: "Merawat Kebhinekaan dalam Berbangsa"</p>
+            </div>
+            <div class="event">
+                <div class="event-date">25 April 2025</div>
+                <h3>Mocopat Syafaat Yogyakarta</h3>
+                <p>Kompleks Taman Makam Pahlawan Kusumanegara, Yogyakarta</p>
+                <p>Tema: "Menyelami Makna Kemerdekaan Sejati"</p>
+            </div>
+            <div class="event">
+                <div class="event-date">11 Mei 2025</div>
+                <h3>Kenduri Cinta Jakarta</h3>
+                <p>Taman Ismail Marzuki, Jakarta</p>
+                <p>Tema: "Dialog Peradaban dan Spiritualitas Modern"</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tentang Padhangmbulan</h3>
+                    <p>Forum Maiyah Padhangmbulan adalah ruang perjumpaan dan dialog yang diinisiasi oleh budayawan Emha Ainun Nadjib (Cak Nun) sejak tahun 1990-an.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Tautan</h3>
+                    <ul>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Artikel</a></li>
+                        <li><a href="#">Jadwal</a></li>
+                        <li><a href="#">Galeri</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <ul>
+                        <li>Email: info@padhangmbulan.org</li>
+                        <li>Telepon: +62 274 123456</li>
+                        <li>Alamat: Jl. Wates Km 2, Kadipiro, Yogyakarta</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Padhangmbulan Forum Maiyah. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
